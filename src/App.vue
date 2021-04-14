@@ -22,7 +22,7 @@
   }
 
   button {
-    background-color: black;
+    background-color: #41B883;
     border: none;
     border-radius: 8px;
     color: white;

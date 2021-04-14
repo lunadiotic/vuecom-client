@@ -1,15 +1,35 @@
 <template>
   <div>
       <h1>Product Page</h1>
-      <router-link :to="{name: 'ProductDetail'}">
-          Detail
-      </router-link>
+      <div id="page-wrap">
+        <div class="grid-wrap">
+          <div 
+            v-for="product in products" 
+            :key="product.id"
+            class="product-item"
+          >
+            <img :src="product.imageUrl" :alt="product.name">
+            <h3>{{ product.name }}</h3>
+            <p class="product-price">Rp{{ product.price }}</p>
+            <router-link :to="{ name: 'ProductDetail', params: { id: product.id}}">
+              <button>Details</button>
+            </router-link>
+          </div>
+        </div>
+      </div>
   </div>
 </template>
 
 <script>
+import { products } from '../../fake-data'
+
 export default {
-    name: 'product-index'
+    name: 'product-index',
+    data() {
+      return {
+        products,
+      }
+    }
 }
 </script>
 
@@ -40,6 +60,7 @@ export default {
   img {
     height: 200px;
     width: 200px;
+    border-radius: 5%;
   }
 
   a {
