@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import Product from '../views/product/Index.vue'
 import ProductDetail from '../views/product/Detail.vue'
 import Cart from '../views/cart/Cart.vue'
+import NotFound from '../views/errors/404.vue'
 
 Vue.use(VueRouter)
 
@@ -28,6 +29,10 @@ const routes = [
     name: 'Cart',
     component: Cart
   },
+  {
+    path: '*',
+    component: NotFound
+  }
 ]
 
 const router = new VueRouter({

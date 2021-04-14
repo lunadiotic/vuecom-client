@@ -1,6 +1,6 @@
 <template>
   <div>
-      <div id="page-wrap">
+      <div id="page-wrap" v-if="product">
         <div id="img-wrap">
           <img :src="product.imageUrl" alt="">
         </div>
@@ -13,14 +13,19 @@
           <p>{{ product.description }}</p>
         </div>
       </div>
+      <NotFound v-else/>
   </div>
 </template>
 
 <script>
 import { products } from '../../fake-data'
+import NotFound from '../errors/404'
 
 export default {
     name: 'product-detail',
+    components: {
+      NotFound
+    },
     data() {
       return {
         products: products
